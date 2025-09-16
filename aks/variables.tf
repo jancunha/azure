@@ -47,8 +47,8 @@ variable "tags" {
   }
 }
 
-variable "container_registry" {
-  description = "Container registry name"
-  type        = string
-  default     = "labcr${random_id.suffix.hex}"
-}
+# variable "container_registry" {
+#   description = "Container registry name"
+#   type        = string
+#   default     = "labcr${random_id.suffix.hex}"
+# }

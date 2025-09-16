@@ -4,8 +4,8 @@ resource "azurerm_resource_group" "main" {
 }
 
 resource "random_id" "suffix" {
-    byte_length = 4
-  }
+  byte_length = 4
+}
 
 resource "azurerm_kubernetes_cluster" "main" {
   name                = var.aks_name
@@ -14,10 +14,10 @@ resource "azurerm_kubernetes_cluster" "main" {
   dns_prefix          = var.dns_prefix
 
   default_node_pool {
-    name       = "default"
-    node_count = var.node_count
-    vm_size    = var.vm_size
-    zones      = [1, 2, 3]
+    name           = "default"
+    node_count     = var.node_count
+    vm_size        = var.vm_size
+    zones          = [1, 2, 3]
     vnet_subnet_id = azurerm_subnet.aks.id
   }
 
@@ -34,7 +34,7 @@ resource "azurerm_kubernetes_cluster" "main" {
 }
 
 resource "azurerm_container_registry" "main" {
-  name                = var.container_registry
+  name                = "labcr${random_id.suffix.hex}"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   sku                 = "Basic"

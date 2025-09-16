@@ -5,7 +5,7 @@ Infraestrutura como código para criar um cluster AKS completo no Azure usando T
 
 - **Resource Group** (`lab-rg`)
 - **AKS Cluster** com 2 nodes Standard_B2s distribuídos em 3 zonas
-- **Virtual Network** (10.0.0.0/16) com subnet dedicada para AKS
+- **Virtual Network** (172.16.0.0/16) com subnet dedicada para AKS
 - **Container Registry** (Basic) com integração automática ao AKS
 - **Network Policies** habilitadas (Azure CNI)
 
